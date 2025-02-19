@@ -5,7 +5,7 @@ import React from 'react'
 import { fileURLToPath } from 'url'
 
 import config from '@/payload.config'
-import './styles.css'
+import './style.css'
 
 export default async function HomePage() {
   const headers = await getHeaders()
@@ -45,6 +45,21 @@ export default async function HomePage() {
             target="_blank"
           >
             Documentation
+          </a>
+          <a
+            className="docs"
+            href="http://localhost:3000/products"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Products List
+          </a>          <a
+            className="docs"
+            href="http://localhost:3000/login"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Login
           </a>
         </div>
       </div>
