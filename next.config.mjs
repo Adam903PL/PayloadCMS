@@ -2,8 +2,37 @@
 import { withPayload } from '@payloadcms/next/withPayload'
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  // Twoja konfiguracja Next.js tutaj
-}
+const nextConfig = withPayload({
+  reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
+  },
+  experimental: {
+    serverComponentsExternalPackages: ['payload'],
+    serverActions: true,
+  },
+  env: {
+    NEXT_PUBLIC_PAYLOAD_URL: process.env.NEXT_PUBLIC_PAYLOAD_URL,
+  },
+  // Dodaj jeśli używasz własnego serwera Express
+  serverRuntimeConfig: {
+    payload: {
+      secret: process.env.PAYLOAD_SECRET,
+    },
+  },
+  publicRuntimeConfig: {
+    payload: {
+      serverURL: process.env.NEXT_PUBLIC_PAYLOAD_URL,
+    },
+  },
+})
 
-export default withPayload(nextConfig)
+export default nextConfig
