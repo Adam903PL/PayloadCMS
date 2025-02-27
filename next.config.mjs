@@ -16,8 +16,7 @@ const nextConfig = withPayload({
     ],
   },
   experimental: {
-    serverComponentsExternalPackages: ['payload'],
-    serverActions: true,
+    serverActions: {}, // Ustaw jako obiekt (nawet pusty, jeśli nie potrzebujesz dodatkowych opcji)
   },
   env: {
     NEXT_PUBLIC_PAYLOAD_URL: process.env.NEXT_PUBLIC_PAYLOAD_URL,
@@ -33,6 +32,8 @@ const nextConfig = withPayload({
       serverURL: process.env.NEXT_PUBLIC_PAYLOAD_URL,
     },
   },
+  // Przenieś tę opcję poza experimental
+  serverExternalPackages: ['payload'],
 })
 
 export default nextConfig

@@ -64,6 +64,7 @@ export interface Config {
   auth: {
     users: UserAuthOperations;
   };
+  blocks: {};
   collections: {
     users: User;
     media: Media;
@@ -88,7 +89,7 @@ export interface Config {
   };
   globals: {};
   globalsSelect: {};
-  locale: null;
+  locale: 'en' | 'pl';
   user: User & {
     collection: 'users';
   };
@@ -157,8 +158,8 @@ export interface Media {
  */
 export interface Car {
   id: number;
-  title?: string | null;
-  featuredImage?: (number | null) | Media;
+  title: string;
+  featuredImage: number | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -168,9 +169,9 @@ export interface Car {
  */
 export interface Product {
   id: number;
-  title?: string | null;
-  price?: number | null;
-  featuredImage?: (number | null) | Media;
+  title: string;
+  price: number;
+  featuredImage: number | Media;
   updatedAt: string;
   createdAt: string;
 }
